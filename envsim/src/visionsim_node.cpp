@@ -43,9 +43,11 @@ VisionSim::VisionSim(const ros::NodeHandle &nh, const ros::NodeHandle &pnh)
   simulator_.addModel(ModelThrustTorqueSimple{quad_});
   simulator_.addModel(ModelRigidBody{quad_});
 
-  std::string env_cfg_file =
-    getenv("FLIGHTMARE_PATH") +
-    std::string("/flightpy/configs/vision/config.yaml");
+  // std::string env_cfg_file =
+  //   getenv("FLIGHTMARE_PATH") +
+  //   std::string("/flightpy/configs/vision/config.yaml");
+  std::string env_cfg_file;
+  pnh_.getParam("env_config", env_cfg_file);
 
   vision_env_ptr_ = std::make_unique<flightlib::VisionEnv>(env_cfg_file, 0);
   if (render_) {
