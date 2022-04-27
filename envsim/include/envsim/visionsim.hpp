@@ -3,6 +3,7 @@
 #include <yaml-cpp/yaml.h>
 
 #include <memory>
+#include <random>
 
 // -- ros
 #include <cv_bridge/cv_bridge.h>
@@ -80,6 +81,10 @@ class VisionSim {
   std::mutex sim_mutex_;
   std::thread sim_thread_;
   std::thread render_thread_;
+
+  std::uniform_real_distribution<Scalar> uniform_dist_{-1.0, 1.0};
+  std::random_device rd_;
+  std::mt19937 random_gen_{rd_()};
 };
 
 }  // namespace agi
