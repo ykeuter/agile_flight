@@ -87,7 +87,7 @@ void VisionSim::resetCallback(const std_msgs::EmptyConstPtr &msg) {
     simulator_.getState(&reset_state);
       // start mid-air
     reset_state.p.x() = -1.0;
-    reset_state.p.y() = uniform_dist_(random_gen_) * 5.;
+    reset_state.p.y() = uniform_dist_(random_gen_) * 7.5;
     reset_state.p.z() = uniform_dist_(random_gen_) * 2.5 + 5.0;
     simulator_.setState(reset_state);
   }
