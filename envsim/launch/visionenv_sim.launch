@@ -21,6 +21,7 @@
             <param name="camera_config" value="$(find envsim)/parameters/camera_config.yaml"/>
             <param name="render" value="$(arg render)"/>
             <param name="env_config" value="$(arg cfg)"/>
+            <param name="env_folder" value="environment_0"/>
         </node>
     </group>
 
