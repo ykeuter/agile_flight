@@ -9,6 +9,7 @@
     <arg name="gui" default="True"/>
     <arg name="rviz" default="True"/>
     <arg name="cfg" default="/cfg/env.yaml"/>
+    <arg name="env" default="environment_0"/>
 
     <group ns="$(arg quad_name)">
         <node name="dodgeros_pilot" pkg="envsim" type="visionsim_node" output="screen">
@@ -21,7 +22,7 @@
             <param name="camera_config" value="$(find envsim)/parameters/camera_config.yaml"/>
             <param name="render" value="$(arg render)"/>
             <param name="env_config" value="$(arg cfg)"/>
-            <param name="env_folder" value="environment_0"/>
+            <param name="env_folder" value="$(arg env)"/>
         </node>
     </group>
 
